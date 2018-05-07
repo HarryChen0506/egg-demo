@@ -7,6 +7,8 @@ class AboutService extends Service {
     // read config
     const { serverUrl, pageSize } = this.config.about;
 
+    // console.log('config', this.config)
+
     // use build-in http client to GET hacker-news api
     const { data } = await this.ctx.curl(`${serverUrl}`, {
       data: {

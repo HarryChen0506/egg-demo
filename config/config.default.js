@@ -7,8 +7,10 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1525662722825_2118';
 
   // add your config here
-  config.middleware = [];
-  
+  config.middleware = [
+    'robot','responseTime'
+  ];
+ 
   // 开启view引擎
   config.view = {
     defaultViewEngine: 'nunjucks',
@@ -21,6 +23,13 @@ module.exports = appInfo => {
   config.about = {
     pageSize: 5,
     serverUrl: 'https://www.tking.cn/showapi/pub/site/3101/discovery',
+  };
+
+  // robot中间件配置
+  config.robot = {
+    ua: [
+      /Baiduspider/i,
+    ]
   };
 
   return config;
