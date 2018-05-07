@@ -8,6 +8,20 @@ module.exports = appInfo => {
 
   // add your config here
   config.middleware = [];
+  
+  // 开启view引擎
+  config.view = {
+    defaultViewEngine: 'nunjucks',
+    mapping: {
+      '.tpl': 'nunjucks',
+    },
+  };
+  
+  // news服务配置
+  config.about = {
+    pageSize: 5,
+    serverUrl: 'https://www.tking.cn/showapi/pub/site/3101/discovery',
+  };
 
   return config;
 };
