@@ -5,7 +5,7 @@ const Controller = require('egg').Controller;
 class AboutController extends Controller {
   async index() {
       
-    console.log('config', this.config)
+    // console.log('helper', this.ctx.helper)
 
     const ctx = this.ctx;
     const page = ctx.query.page || 1;

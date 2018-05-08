@@ -1,7 +1,10 @@
 
 // app/middleware/robot.js
 
-// options === app.config.robot
+/**
+ * options 为中间件的配置对象， 即
+ *  options === app.config.robot  
+ */
 module.exports = (options, app) => {
   return async function robotMiddleware(ctx, next) {
     const source = ctx.get('user-agent') || '';

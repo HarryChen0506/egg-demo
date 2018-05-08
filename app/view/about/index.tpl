@@ -1,7 +1,7 @@
 <!-- app/view/news/list.tpl -->
 <html>
   <head>
-    <title>Hacker News</title>
+    <title>about 页面</title>
     <link rel="stylesheet" href="/public/css/about.css" />
   </head>
   <body>
