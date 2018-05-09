@@ -2,10 +2,11 @@
 
 const Controller = require('egg').Controller;
 
-class UserController extends Controller {
+class PostsController extends Controller {
 
     async index(){          
-        console.log('request', this.ctx.request.ip)       
+        // 查看客户端IP 
+        // console.log('request', this.ctx.request.ip)       
         this.ctx.body = `Hello,123`;
         // this.ctx.status = 202   
     }
@@ -16,14 +17,24 @@ class UserController extends Controller {
                 type: 'string' 
             },
             age: {
-                type: 'string'
+                type: 'number'
             }
         };
         // 校验参数
-        console.log('ctx',this.ctx.validate)
-        this.ctx.validate(createRule);        
-        this.ctx.type = 'json'; 
-        this.ctx.status = 201       
+        // console.log('ctx',this.ctx.validate)
+        try {
+            this.ctx.validate(createRule);   
+        } catch (err){
+            console.log('error-1', err);
+            this.ctx.logger.warn(err.errors);
+            this.ctx.body = {
+                success: false,
+                msg: 'params validate fail'
+            }
+            return 
+        }             
+        // this.ctx.type = 'json'; 
+        this.ctx.status = 200       
         this.ctx.body = {
             result: this.ctx.request.body
         }
@@ -38,4 +49,4 @@ class UserController extends Controller {
    
 }
 
-module.exports = UserController;
+module.exports = PostsController;
