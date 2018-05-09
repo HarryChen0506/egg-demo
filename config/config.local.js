@@ -3,6 +3,12 @@
 module.exports = appInfo => {
   const config = exports = {};
 
+  // bodyParser配置项
+  config.bodyParser ={
+    jsonLimit: '100kb',  // 不得大于100kb
+    formLimit: '100kb',
+  },
+
   // robot中间件配置
   config.robot = {
     ua: [

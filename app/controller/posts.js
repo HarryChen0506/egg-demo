@@ -4,8 +4,10 @@ const Controller = require('egg').Controller;
 
 class UserController extends Controller {
 
-    async index(){               
+    async index(){          
+        console.log('request', this.ctx.request.ip)       
         this.ctx.body = `Hello,123`;
+        // this.ctx.status = 202   
     }
     async create(){
         const createRule = {
@@ -14,16 +16,18 @@ class UserController extends Controller {
                 type: 'string' 
             },
             age: {
-                type: 'number'
+                type: 'string'
             }
         };
         // 校验参数
-        // console.log('ctx',this.ctx.validate)
-        this.ctx.validate(createRule);
-        this.ctx.type = 'json'
+        console.log('ctx',this.ctx.validate)
+        this.ctx.validate(createRule);        
+        this.ctx.type = 'json'; 
+        this.ctx.status = 201       
         this.ctx.body = {
-            result: true
+            result: this.ctx.request.body
         }
+        
     }
     async new(){
         this.ctx.type = 'json'
