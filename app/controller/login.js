@@ -1,3 +1,5 @@
+import { error } from 'util';
+
 'use strict';
 
 const Controller = require('egg').Controller;
@@ -7,6 +9,11 @@ class LoginController extends Controller {
       const { ctx } = this;
       ctx.session = {userId: '1234'};
       ctx.body = `login`
+
+      //http://www.versa-ai.com/
+      let res = await ctx.curl(`http://www.versa-ai.com/`);
+    
+      console.log('res', res)
     
   }
   async success(){

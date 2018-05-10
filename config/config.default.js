@@ -10,7 +10,7 @@ module.exports = appInfo => {
 
   // add your config here
   config.middleware = [
-    'robot','responseTime'
+    'robot','accessLogger','responseTime'
   ];
  
   // 开启view引擎
@@ -45,6 +45,12 @@ module.exports = appInfo => {
       /Baiduspider/i,
     ]
   };
+
+  // accessLogger中间件配置
+  config.accessLogger = {
+    path: 'logs/access.log',  //存储位置
+    console: false, //控制台是否输出
+  }
 
   return config;
 };

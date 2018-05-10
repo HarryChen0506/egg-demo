@@ -14,3 +14,11 @@ exports.validate = {
   enable: true,
   package: 'egg-validate',
 };
+
+// 开启日志分割
+exports.logrotator = {
+  enable: true,
+  package: 'egg-logrotator',
+  filesRotateByHour: [],           // list of files that will be rotated by hour
+};
+

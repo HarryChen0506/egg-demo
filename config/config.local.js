@@ -19,7 +19,7 @@ module.exports = appInfo => {
   // 开发环境关闭CSRF，可以用postman模拟请求
   config.security = {
     csrf: {
-      enable: false
+      enable: true
       // ignore: ctx => isInnerIp(ctx.ip), //判断是否是内部ip
     }
   }
