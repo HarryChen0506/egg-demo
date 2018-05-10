@@ -31,3 +31,20 @@ $ npm stop
 
 
 [egg]: https://eggjs.org
+
+#### 部署过程
+
+```
+$ cd baseDir
+$ npm install --production
+$ tar -zcvf ../release.tgz .
+
+```
+
+- 开发人员local环境可如下操作
+```
+$ git clone https:///github...
+$ cnpm install --production
+$ npm run start
+$ npm run stop
+```
