@@ -10,7 +10,7 @@ module.exports = appInfo => {
 
   // add your config here
   config.middleware = [
-    'robot','accessLogger','responseTime'
+    'robot','accessLogger','responseTime','errorHandler'
   ];
  
   // 开启view引擎
@@ -50,6 +50,11 @@ module.exports = appInfo => {
   config.accessLogger = {
     path: 'logs/access.log',  //存储位置
     console: false, //控制台是否输出
+  }
+
+  // 只对指定路径进行异常中间件处理
+  config.errorHandler = {
+    match: '/api',
   }
 
   return config;

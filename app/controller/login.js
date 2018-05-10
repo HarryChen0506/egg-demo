@@ -10,6 +10,8 @@ class LoginController extends Controller {
 
       //http://www.versa-ai.com/
       let res = await ctx.curl(`http://www.versa-ai.com/`);
+
+      // throw new Error('hello')
     
       console.log('res', res)
     
