@@ -24,7 +24,9 @@ module.exports = appInfo => {
   // session配置
   config.session = {
     key: 'VERSA_SESSION', // 承载 Session 的 Cookie 键值对名字
-    maxAge: 86400000, // Session 的最大有效时间
+    maxAge: 24 * 3600 * 1000, // Session 的最大有效时间
+    httpOnly: true,
+    encrypt: true, //加密
   };
 
   //  security 重定向主域白名单
